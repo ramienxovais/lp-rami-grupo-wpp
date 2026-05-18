@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rami Enxovais — Grupo VIP de Ofertas no WhatsApp</title>
+  <meta name="description" content="Entre no Grupo VIP da Rami Enxovais e receba ofertas exclusivas com até 50% OFF em cama, banho e mesa direto no seu WhatsApp." />
+  <meta property="og:title" content="Rami Enxovais — Grupo VIP de Ofertas" />
+  <meta property="og:description" content="Enxovais com até 50% OFF. Receba promoções exclusivas direto no seu WhatsApp antes de todo mundo." />
+  <meta property="og:type" content="website" />
+
+  <!--
+  ═══════════════════════════════════════════════
+  META PIXEL — INSIRA SEU CÓDIGO AQUI
+  Substitua XXXXXXXXXXXXXXX pelo seu Pixel ID
+  ═══════════════════════════════════════════════
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','XXXXXXXXXXXXXXX');
+    fbq('track','PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/>
+  </noscript>
+  ═══════════════════════════════════════════════ -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* ═══════════════════════════════════════════
+       VARIÁVEIS
+    ═══════════════════════════════════════════ */
+    :root {
+      --cream:       #FAF7F2;
+      --red:         #CC0000;
+      --red-dark:    #8B0000;
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --text:        #1A1A1A;
+      --text-muted:  #6B6B6B;
+      --white:       #FFFFFF;
+      --dark:        #1A1A1A;
+      --wpp:         #25D366;
+
+      --font-serif:  'Playfair Display', Georgia, serif;
+      --font-sans:   'Inter', system-ui, sans-serif;
+
+      --radius:      4px;
+      --transition:  .3s ease;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background-color: var(--cream);
+      /* Textura SVG de linho — linhas finas diagonais cruzadas */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 40L40 0M-5 5L5 -5M35 45L45 35' stroke='%23C9A84C' stroke-width='0.4' stroke-opacity='0.18'/%3E%3Cpath d='M0 0L40 40M-5 35L5 45M35 -5L45 5' stroke='%23C9A84C' stroke-width='0.4' stroke-opacity='0.12'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ═══════════════════════════════════════════
+       ANIMAÇÕES
+    ═══════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-100%); }
+      to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .32s; }
+    .reveal-delay-4 { transition-delay: .44s; }
+
+    /* ═══════════════════════════════════════════
+       BARRA STICKY SUPERIOR
+    ═══════════════════════════════════════════ */
+    .sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 20px;
+      animation: slideDown .4s ease forwards;
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .sticky-bar.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-100%);
+    }
+
+    .sticky-bar__text {
+      font-family: var(--font-sans);
+      font-size: .82rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      letter-spacing: .6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sticky-bar__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      animation: pulseDot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(204,0,0,.6); }
+      50%      { box-shadow: 0 0 0 5px rgba(204,0,0,0); }
+    }
+
+    .sticky-bar__btn {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 2px;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+    .sticky-bar__btn:hover { background: #a80000; }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════ */
+    .site-header {
+      padding: 40px 24px 0;
+      text-align: center;
+    }
+
+    .site-header__logo {
+      margin: 0 auto;
+      max-width: 180px;
+      max-height: 100px;
+      object-fit: contain;
+    }
+
+    .site-header__logo-fallback {
+      display: none;
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 1px;
+      margin: 0 auto;
+    }
+    .site-header__logo-fallback em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .header-rule {
+      width: 100%;
+      max-width: 760px;
+      margin: 28px auto 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--gold-light) 20%,
+        var(--gold) 50%,
+        var(--gold-light) 80%,
+        transparent 100%
+      );
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      padding: 64px 24px 72px;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero__tag {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-light);
+      padding: 5px 16px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: -.2px;
+    }
+    .hero__headline em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .hero__sub {
+      font-family: var(--font-sans);
+      font-size: clamp(.95rem, 2.2vw, 1.1rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #a80000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(204,0,0,.22);
+    }
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white);
+      flex-shrink: 0;
+    }
+
+    /* separador dourado decorativo */
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 320px;
+      margin: 52px auto 0;
+    }
+    .gold-divider__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .gold-divider__line:last-child {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .gold-divider__diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       BENEFÍCIOS
+    ═══════════════════════════════════════════ */
+    .benefits {
+      padding: 72px 24px 80px;
+      background: var(--white);
+      position: relative;
+    }
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+    }
+    .benefits::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+    }
+
+    .benefits__inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .benefits__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 600;
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .benefits__sub {
+      font-family: var(--font-sans);
+      font-size: .9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+    }
+
+    @media (max-width: 680px) {
+      .benefits__grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .benefit-card {
+      text-align: center;
+    }
+
+    .benefit-card__icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 20px;
+      color: var(--gold);
+    }
+    .benefit-card__icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .benefit-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .benefit-card__desc {
+      font-family: var(--font-sans);
+      font-size: .88rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       URGÊNCIA
+    ═══════════════════════════════════════════ */
+    .urgency {
+      background: var(--red-dark);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* textura sutil no fundo da seção */
+    .urgency::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='28' stroke='%23FFFFFF' stroke-width='.4' stroke-opacity='.04' fill='none'/%3E%3C/svg%3E");
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .urgency__inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .urgency__eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+
+    .urgency__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .urgency__sub {
+      font-family: var(--font-sans);
+      font-size: clamp(.92rem, 2vw, 1rem);
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      color: var(--red-dark);
+      font-family: var(--font-sans);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-secondary:hover {
+      background: #f0e8e8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    }
+    .btn-secondary svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--red-dark);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .site-footer {
+      background: var(--dark);
+      padding: 40px 24px 36px;
+      text-align: center;
+    }
+
+    .site-footer__logo {
+      margin: 0 auto 16px;
+      max-width: 120px;
+      max-height: 64px;
+      object-fit: contain;
+      opacity: .65;
+      filter: brightness(10); /* torna a logo branca/clara */
+    }
+
+    .site-footer__logo-fallback {
+      display: none;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 14px;
+    }
+
+    .site-footer__copy {
+      font-family: var(--font-sans);
+      font-size: .78rem;
+      color: #555;
+      letter-spacing: .3px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SPACER para compensar a sticky bar
+    ═══════════════════════════════════════════ */
+    .sticky-spacer {
+      height: 40px;
+      transition: height .4s ease;
+    }
+    .sticky-spacer.hidden { height: 0; }
+
+    /* ═══════════════════════════════════════════
+       TICKER ROLANTE
+    ═══════════════════════════════════════════ */
+    .ticker-wrap {
+      background: var(--red-dark);
+      height: 36px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    .ticker-wrap::before,
+    .ticker-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .ticker-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--red-dark), transparent);
+    }
+    .ticker-wrap::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--red-dark), transparent);
+    }
+    .ticker {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 32s linear infinite;
+      height: 100%;
+      align-items: center;
+    }
+    .ticker__item {
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--white);
+      white-space: nowrap;
+      padding: 0 28px;
+    }
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════
+       BOTÕES CTA — PULSO + BRILHO
+    ═══════════════════════════════════════════ */
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0); }
+      50%       { box-shadow: 0 0 24px 6px rgba(204,0,0,.28); }
+    }
+    @keyframes btnPulseSec {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+      50%       { box-shadow: 0 0 24px 6px rgba(255,255,255,.16); }
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary  { animation: btnPulse    2.6s ease-in-out infinite; }
+    .btn-secondary{ animation: btnPulseSec 2.6s ease-in-out infinite; }
+
+    .btn-primary::after,
+    .btn-secondary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -115%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent 10%, rgba(255,255,255,.28) 50%, transparent 90%);
+      transform: skewX(-18deg);
+      transition: left .55s ease;
+      pointer-events: none;
+    }
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: scale(1.03);
+      animation: none;
+    }
+    .btn-primary:hover::after,
+    .btn-secondary:hover::after {
+      left: 130%;
+    }
+
+    /* ═══════════════════════════════════════════
+       POPUPS DE PROVA SOCIAL
+    ═══════════════════════════════════════════ */
+    .social-proof {
+      position: fixed;
+      bottom: 28px;
+      left: 20px;
+      z-index: 9000;
+      pointer-events: none;
+    }
+    .sp-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 258px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.07);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .45s ease, transform .45s ease;
+      border-left: 3px solid var(--red);
+    }
+    .sp-card.sp-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sp-card.sp-hide {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .sp-card__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f9eded;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+    }
+    .sp-card__avatar svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .sp-card__name {
+      font-family: var(--font-sans);
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .sp-card__action {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* logo footer — versão branca */
+    .site-footer__logo {
+      filter: brightness(0) invert(1);
+      opacity: .7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ BARRA STICKY SUPERIOR ════════════════════ -->
+  <div class="sticky-bar" id="stickyBar" role="banner" aria-label="Oferta destaque">
+    <p class="sticky-bar__text">
+      <span class="sticky-bar__dot" aria-hidden="true"></span>
+      Grupo VIP Rami, Ofertas exclusivas até 50% OFF
+    </p>
+    <a
+      href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t"
+      class="sticky-bar__btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="cta-sticky"
+    >
+      Entrar Agora
+    </a>
+  </div>
+  <div class="sticky-spacer" id="stickySpacer"></div>
+
+  <!-- ═══ TICKER ROLANTE ══════════════════════════════ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="ticker__item">🔴 OFERTA EXCLUSIVA &nbsp;&middot;&nbsp; ATÉ 50% OFF EM ENXOVAIS &nbsp;&middot;&nbsp; GRUPO VIP RAMI &nbsp;&middot;&nbsp; VAGAS LIMITADAS &nbsp;&middot;&nbsp;</span>
+      <span class="ticker__item">🔴 OFERTA EXCLUSIVA &nbsp;&middot;&nbsp; ATÉ 50% OFF EM ENXOVAIS &nbsp;&middot;&nbsp; GRUPO VIP RAMI &nbsp;&middot;&nbsp; VAGAS LIMITADAS &nbsp;&middot;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ═══ HEADER ════════════════════════════════════ -->
+  <header class="site-header">
+    <img
+      src="logo-rami.png"
+      alt="Rami Enxovais"
+      class="site-header__logo"
+      id="headerLogo"
+      onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';"
+    />
+    <p class="site-header__logo-fallback" id="logoFallback">
+      <em>Rami</em> Enxovais
+    </p>
+    <div class="header-rule"></div>
+  </header>
+
+  <!-- ═══ HERO ══════════════════════════════════════ -->
+  <main>
+    <section class="hero" id="hero" aria-labelledby="heroHeadline">
+
+      <p class="hero__tag reveal">Grupo VIP de Ofertas</p>
+
+      <h1 class="hero__headline reveal reveal-delay-1" id="heroHeadline">
+        Enxovais com <em>até 50% OFF</em><br/>direto no seu WhatsApp
+      </h1>
+
+      <p class="hero__sub reveal reveal-delay-2">
+        Receba ofertas exclusivas de cama, banho e mesa antes de todo mundo,
+        sem sair de casa.
+      </p>
+
+      <a
+        href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t"
+        class="btn-primary reveal reveal-delay-3"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="cta-hero"
+      >
+        <!-- WhatsApp icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Entrar no Grupo VIP
+      </a>
+
+      <div class="gold-divider reveal reveal-delay-4" aria-hidden="true">
+        <span class="gold-divider__line"></span>
+        <span class="gold-divider__diamond"></span>
+        <span class="gold-divider__line"></span>
+      </div>
+
+    </section>
+
+    <!-- ═══ BENEFÍCIOS ════════════════════════════ -->
+    <section class="benefits" aria-labelledby="benefitsTitle">
+      <div class="benefits__inner">
+
+        <h2 class="benefits__title reveal" id="benefitsTitle">
+          Por que entrar no Grupo VIP?
+        </h2>
+        <p class="benefits__sub reveal reveal-delay-1">
+          Vantagens exclusivas para membros do grupo
+        </p>
+
+        <div class="benefits__grid">
+
+          <!-- Card 1 -->
+          <div class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <!-- Ícone: tag de oferta -->
+              <svg viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+                <circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Primeiros nas ofertas</h3>
+            <p class="benefit-card__desc">
+              Acesso antecipado às promoções relâmpago e liquidações
+              antes de qualquer outra pessoa.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <!-- Ícone: desconto/% -->
+              <svg viewBox="0 0 24 24">
+                <line x1="19" y1="5" x2="5" y2="19"/>
+                <circle cx="6.5" cy="6.5" r="2.5"/>
+                <circle cx="17.5" cy="17.5" r="2.5"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Até 50% de desconto</h3>
+            <p class="benefit-card__desc">
+              Enxovais de qualidade com preço de fábrica, direto
+              para você, sem intermediários.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="benefit-card reveal reveal-delay-3">
+            <div class="benefit-card__icon" aria-hidden="true">
+              <!-- Ícone: caixa/pacote -->
+              <svg viewBox="0 0 24 24">
+                <polyline points="21 8 21 21 3 21 3 8"/>
+                <rect x="1" y="3" width="22" height="5"/>
+                <line x1="10" y1="12" x2="14" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Cama, Banho &amp; Mesa</h3>
+            <p class="benefit-card__desc">
+              Produtos selecionados com curadoria: lençóis, toalhas,
+              jogos completos e muito mais.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ URGÊNCIA ══════════════════════════════ -->
+    <section class="urgency" aria-labelledby="urgencyTitle">
+      <div class="urgency__inner">
+
+        <p class="urgency__eyebrow reveal">Atenção, vagas limitadas</p>
+
+        <h2 class="urgency__headline reveal reveal-delay-1" id="urgencyTitle">
+          O grupo está quase cheio
+        </h2>
+
+        <p class="urgency__sub reveal reveal-delay-2">
+          Quando atingirmos o limite, as entradas serão encerradas.
+          Não perca a chance de receber nossas melhores ofertas.
+        </p>
+
+        <a
+          href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t"
+          class="btn-secondary reveal reveal-delay-3"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="cta-urgency"
+        >
+          <!-- WhatsApp icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Garantir Minha Vaga
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════ -->
+  <footer class="site-footer">
+    <img
+      src="logo-rami.png"
+      alt="Rami Enxovais"
+      class="site-footer__logo"
+      onerror="this.style.display='none'; document.getElementById('footerLogoFallback').style.display='block';"
+    />
+    <p class="site-footer__logo-fallback" id="footerLogoFallback">Rami Enxovais</p>
+    <p class="site-footer__copy">&copy; 2025 Rami Enxovais. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── 1. STICKY BAR: some quando hero está visível ── */
+      var stickyBar    = document.getElementById('stickyBar');
+      var stickySpacer = document.getElementById('stickySpacer');
+      var heroSection  = document.getElementById('hero');
+
+      if ('IntersectionObserver' in window && stickyBar && heroSection) {
+        var heroObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                stickyBar.classList.add('hidden');
+                stickySpacer.classList.add('hidden');
+              } else {
+                stickyBar.classList.remove('hidden');
+                stickySpacer.classList.remove('hidden');
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        heroObserver.observe(heroSection);
+      }
+
+      /* ── 2. REVEAL AO SCROLL ── */
+      var revealEls = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealEls.forEach(function (el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        /* fallback para browsers antigos */
+        revealEls.forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+
+      /* ── 3. POPUPS DE PROVA SOCIAL ── */
+      var spWrap = document.createElement('div');
+      spWrap.className = 'social-proof';
+      document.body.appendChild(spWrap);
+
+      var spList = [
+        { name: 'Ana Paula',  city: 'Curitiba, PR'      },
+        { name: 'Fernanda',   city: 'Londrina, PR'       },
+        { name: 'Mariana',    city: 'Porto Alegre, RS'   },
+        { name: 'Camila',     city: 'Maringá, PR'        },
+        { name: 'Juliana',    city: 'Caxias do Sul, RS'  },
+        { name: 'Beatriz',    city: 'Cascavel, PR'       },
+      ];
+      var spIdx = 0;
+
+      function showSP() {
+        var data = spList[spIdx % spList.length];
+        spIdx++;
+
+        var card = document.createElement('div');
+        card.className = 'sp-card';
+        card.innerHTML =
+          '<div class="sp-card__avatar">' +
+            '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>' +
+            '<circle cx="12" cy="7" r="4"/></svg>' +
+          '</div>' +
+          '<div>' +
+            '<p class="sp-card__name">' + data.name + ' de ' + data.city + '</p>' +
+            '<p class="sp-card__action">entrou no grupo agora</p>' +
+          '</div>';
+
+        spWrap.appendChild(card);
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { card.classList.add('sp-show'); });
+        });
+
+        setTimeout(function () {
+          card.classList.remove('sp-show');
+          card.classList.add('sp-hide');
+          setTimeout(function () {
+            if (card.parentNode) card.parentNode.removeChild(card);
+          }, 500);
+        }, 4000);
+      }
+
+      setTimeout(function () {
+        showSP();
+        setInterval(showSP, 6000);
+      }, 2500);
+
+      /* ── 4. RASTREAMENTO META PIXEL (descomente após inserir pixel) ──
+      var ctaIds = ['cta-sticky', 'cta-hero', 'cta-urgency'];
+      ctaIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', function () {
+            if (typeof fbq === 'function') {
+              fbq('track', 'Lead');
+            }
+          });
+        }
+      });
+      ── */
+
+    })();
+  </script>
+
+</body>
+</html>
