@@ -122,7 +122,6 @@
     }
     .sticky-bar.hidden {
       opacity: 0;
-      pointer-events: none;
       transform: translateY(-100%);
     }
 
@@ -152,6 +151,8 @@
 
     .sticky-bar__btn {
       display: inline-block;
+      position: relative;
+      overflow: hidden;
       background: var(--red);
       color: var(--white);
       font-family: var(--font-sans);
@@ -161,10 +162,28 @@
       text-transform: uppercase;
       padding: 7px 18px;
       border-radius: 2px;
-      transition: background var(--transition);
+      transition: background var(--transition), transform var(--transition);
       white-space: nowrap;
+      animation: btnPulse 2.6s ease-in-out infinite;
     }
-    .sticky-bar__btn:hover { background: #a80000; }
+    .sticky-bar__btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -115%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent 10%, rgba(255,255,255,.28) 50%, transparent 90%);
+      transform: skewX(-18deg);
+      transition: left .55s ease;
+      pointer-events: none;
+    }
+    .sticky-bar__btn:hover {
+      background: #a80000;
+      transform: scale(1.03);
+      animation: none;
+    }
+    .sticky-bar__btn:hover::after { left: 130%; }
 
     /* ═══════════════════════════════════════════
        HEADER
@@ -703,15 +722,7 @@
       <span class="sticky-bar__dot" aria-hidden="true"></span>
       Grupo VIP Rami, Ofertas exclusivas até 50% OFF
     </p>
-    <a
-      href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t"
-      class="sticky-bar__btn"
-      target="_blank"
-      rel="noopener noreferrer"
-      id="cta-sticky"
-    >
-      Entrar Agora
-    </a>
+    <a href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t" target="_blank" rel="noopener noreferrer" id="cta-sticky" class="sticky-bar__btn" style="text-decoration:none; pointer-events:auto;">ENTRAR AGORA</a>
   </div>
   <div class="sticky-spacer" id="stickySpacer"></div>
 
@@ -899,7 +910,8 @@
       var stickySpacer = document.getElementById('stickySpacer');
       var heroSection  = document.getElementById('hero');
 
-      if ('IntersectionObserver' in window && stickyBar && heroSection) {
+      if ('IntersectionObserver' in window && stickyBar) {
+        var heroCta = document.getElementById('cta-hero') || heroSection;
         var heroObserver = new IntersectionObserver(
           function (entries) {
             entries.forEach(function (entry) {
@@ -912,9 +924,9 @@
               }
             });
           },
-          { threshold: 0.25 }
+          { threshold: 0.5 }
         );
-        heroObserver.observe(heroSection);
+        heroObserver.observe(heroCta);
       }
 
       /* ── 2. REVEAL AO SCROLL ── */
@@ -949,12 +961,18 @@
       document.body.appendChild(spWrap);
 
       var spList = [
-        { name: 'Ana Paula',  city: 'Curitiba, PR'      },
-        { name: 'Fernanda',   city: 'Londrina, PR'       },
-        { name: 'Mariana',    city: 'Porto Alegre, RS'   },
-        { name: 'Camila',     city: 'Maringá, PR'        },
-        { name: 'Juliana',    city: 'Caxias do Sul, RS'  },
-        { name: 'Beatriz',    city: 'Cascavel, PR'       },
+        { name: 'Ana Paula',  city: 'Foz do Iguaçu'  },
+        { name: 'Mirtha',     city: 'Ciudad del Este' },
+        { name: 'Fernanda',   city: 'Foz do Iguaçu'  },
+        { name: 'Graciela',   city: 'Ciudad del Este' },
+        { name: 'Rosângela',  city: 'Foz do Iguaçu'  },
+        { name: 'Lorena',     city: 'Ciudad del Este' },
+        { name: 'Cleide',     city: 'Foz do Iguaçu'  },
+        { name: 'Patricia',   city: 'Ciudad del Este' },
+        { name: 'Simone',     city: 'Foz do Iguaçu'  },
+        { name: 'Viviana',    city: 'Ciudad del Este' },
+        { name: 'Márcia',     city: 'Foz do Iguaçu'  },
+        { name: 'Sandra',     city: 'Ciudad del Este' },
       ];
       var spIdx = 0;
 
