@@ -549,55 +549,6 @@
     }
     .sticky-spacer.hidden { height: 0; }
 
-    /* ═══════════════════════════════════════════
-       TICKER ROLANTE
-    ═══════════════════════════════════════════ */
-    .ticker-wrap {
-      background: var(--red-dark);
-      height: 36px;
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-    }
-    .ticker-wrap::before,
-    .ticker-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 60px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .ticker-wrap::before {
-      left: 0;
-      background: linear-gradient(90deg, var(--red-dark), transparent);
-    }
-    .ticker-wrap::after {
-      right: 0;
-      background: linear-gradient(270deg, var(--red-dark), transparent);
-    }
-    .ticker {
-      display: flex;
-      width: max-content;
-      animation: tickerScroll 32s linear infinite;
-      height: 100%;
-      align-items: center;
-    }
-    .ticker__item {
-      font-family: var(--font-sans);
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--white);
-      white-space: nowrap;
-      padding: 0 28px;
-    }
-    @keyframes tickerScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
 
     /* ═══════════════════════════════════════════
        BOTÕES CTA — PULSO + BRILHO
@@ -721,14 +672,6 @@
     <a href="https://chat.whatsapp.com/GfJV5M5nl3J7vBOltUoltV?mode=gi_t" target="_blank" rel="noopener noreferrer" id="cta-sticky" class="sticky-bar__btn" style="text-decoration:none; pointer-events:auto;">ENTRAR AGORA</a>
   </div>
   <div class="sticky-spacer" id="stickySpacer"></div>
-
-  <!-- ═══ TICKER ROLANTE ══════════════════════════════ -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span class="ticker__item">🔴 OFERTA EXCLUSIVA &nbsp;&middot;&nbsp; ATÉ 50% OFF EM ENXOVAIS &nbsp;&middot;&nbsp; GRUPO VIP RAMI &nbsp;&middot;&nbsp; VAGAS LIMITADAS &nbsp;&middot;&nbsp;</span>
-      <span class="ticker__item">🔴 OFERTA EXCLUSIVA &nbsp;&middot;&nbsp; ATÉ 50% OFF EM ENXOVAIS &nbsp;&middot;&nbsp; GRUPO VIP RAMI &nbsp;&middot;&nbsp; VAGAS LIMITADAS &nbsp;&middot;&nbsp;</span>
-    </div>
-  </div>
 
   <!-- ═══ HEADER ════════════════════════════════════ -->
   <header class="site-header">
