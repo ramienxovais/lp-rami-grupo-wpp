@@ -12,11 +12,7 @@
   <link rel="icon" type="image/png" href="favicon-rami.png">
   <link rel="apple-touch-icon" href="favicon-rami.png">
 
-  <!--
-  ═══════════════════════════════════════════════
-  META PIXEL — INSIRA SEU CÓDIGO AQUI
-  Substitua XXXXXXXXXXXXXXX pelo seu Pixel ID
-  ═══════════════════════════════════════════════
+  <!-- META PIXEL — Rami Enxovais -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
     n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -24,14 +20,14 @@
     n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
     s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
     (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','XXXXXXXXXXXXXXX');
+    fbq('init','1319527588570699');
     fbq('track','PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1319527588570699&ev=PageView&noscript=1"/>
   </noscript>
-  ═══════════════════════════════════════════════ -->
+  <!-- FIM META PIXEL -->
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -951,19 +947,53 @@
         setInterval(showSP, 6000);
       }, 2500);
 
-      /* ── 4. RASTREAMENTO META PIXEL (descomente após inserir pixel) ──
+      /* ── 4. META PIXEL + CONVERSIONS API — cliques nos CTAs ── */
+
+      // Lê cookie pelo nome
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : undefined;
+      }
+
+      // Gera event_id único para deduplicação browser ↔ server
+      function genEventId() {
+        return 'ev_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+      }
+
+      // Dispara evento no Pixel (browser) + Conversions API (server)
+      function trackLead() {
+        var eventId = genEventId();
+
+        // 1. Pixel browser — com eventID para deduplicação
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {}, { eventID: eventId });
+        }
+
+        // 2. Conversions API — via serverless function
+        var payload = {
+          event_name:       'Lead',
+          event_id:         eventId,
+          event_source_url: window.location.href,
+          fbc:              getCookie('_fbc'),
+          fbp:              getCookie('_fbp'),
+        };
+
+        fetch('/api/conversion', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        }).catch(function (err) {
+          console.warn('[CAPI] Falha ao enviar evento:', err.message);
+        });
+      }
+
       var ctaIds = ['cta-sticky', 'cta-hero', 'cta-urgency'];
       ctaIds.forEach(function (id) {
         var el = document.getElementById(id);
         if (el) {
-          el.addEventListener('click', function () {
-            if (typeof fbq === 'function') {
-              fbq('track', 'Lead');
-            }
-          });
+          el.addEventListener('click', trackLead);
         }
       });
-      ── */
 
     })();
   </script>
